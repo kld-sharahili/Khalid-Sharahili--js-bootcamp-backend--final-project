@@ -25,9 +25,10 @@ module.exports = {
         const createStd = async () => {
             
             try {
+            // to encrypt the password
             const hashedPassword = await bcrypt.hash(password, saltRounds)
 
-
+            
             const newStudent = await new Student({
                 username,
                 email,
@@ -144,32 +145,38 @@ module.exports = {
         stdCourseRegister()
     },
 
-    // LIST OF COURSES OF SPECIFIC STUDENT THAT REGISTERED IN / API : STOP HERE
+    // LIST OF COURSES OF SPECIFIC STUDENT THAT REGISTERED IN / API :DONE
     listSpecificCourses:  (req, res) => {
         const stdId = req.params.id
 
+
+        try {
         const authHeader = req.headers.authorization
         const token = authHeader.split(" ")[1]           
         const verify = JWT.verify(token, process.env.private)
         const stdVerifyId = verify.user.id
         
-
+        
+        // if the id in jsonwebtoken verify not equal the student id then not allowed to enter this page
         if (stdVerifyId != stdId) {
             res.status(401).json({errorMessage: "NOT AUTHORIZED"})
             return
         }
         
-        // if(stdVerifyId == stdId){
-            
+            // using async and await to show courses thats linked with specific student
             const listStdCourses = async () => {
 
                 const findStd = await Student.findById(stdId)
                 const thisCourseInfo = await findStd.populate("coursesInfo")
-                const coursesData = thisCourseInfo.coursesInfo
-                // const instructors = await Instructor.findById(CoursesData.instructorInfo)
+                // get the courses of student by <schema.type.objectId> field in Student model
+                const coursesData = thisCourseInfo.coursesInfo 
                 
-                let coursesInfo = []
-                let fields = []
+                /* 
+                    for organizing the information for course that student registered, and to 
+                    hide other information from student such as the other students they registered
+                    in this course
+                */
+                let coursesInfo = [] 
                 let instructors = []
                 let instructorsFound = []
 
@@ -186,8 +193,38 @@ module.exports = {
             }
             // calling listStdCourses
             listStdCourses()
-
+        } catch (err) {
+            res.status(401).json({errorMessage: "NOT AUTHORIZED"})
         }
+    },
+
+    // CANCEL THE REGISTRATION FROM COURSE
+    cancelRegistrationCourse: (req, res) => {
+        const stdId = req.params.id
+        const courseId = req.body.courseId
         
+        try {
+            const authHeader = req.headers.authorization
+            const token = authHeader.split(" ")[1] 
+            JWT.verify(token, process.env.private)          
+            // const verify = JWT.verify(token, process.env.private)
+            // const stdVerifyId = verify.user.id
+
+            const cancelRegister = async () => {
+                const findStd = await Student.findById(stdId)
+                const courseInformation = findStd.coursesInfo
+                const index = courseInformation.indexOf(courseId)
+                courseInformation.splice(index, 1)
+                await findStd.save()
+
+                res.json({alert: "Course registration canceled", findStd})
+            }
+
+            // calling cancelRegister
+            cancelRegister()
+        } catch (err) {
+            res.status(401).json({errorMessage: "NOT AUTHORIZED"})
+        }
     }
+}
 

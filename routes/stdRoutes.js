@@ -17,7 +17,10 @@ router.get("/listCourses", stdController.listAllCourses)
 // REGISTER IN SPECIFIC COURSE ROUTE -- localhost/api/student/courseRegistration
 router.post("/courseRegistration/:id", stdController.registerSpecificCourse)
 
-// LIST COURSES OF SPECIFIC STUDENT -- localhost/api/student/listStdCourses
+// LIST COURSES OF SPECIFIC STUDENT ROUT -- localhost/api/student/listStdCourses
 router.get("/listStdCourses/:id", stdController.listSpecificCourses)
+
+// CANCEL REGISTRATION FROM COURSE ROUT -- localhost/api/student/cancelRegistration
+router.post("/cancelRegistration/:id", stdController.cancelRegistrationCourse)
 
 module.exports = router
