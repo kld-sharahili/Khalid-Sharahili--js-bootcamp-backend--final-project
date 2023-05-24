@@ -76,8 +76,9 @@ module.exports = {
             const response = await bcrypt.compare(password, pwdHashed)
             if(response == true){
                 req.session.currentInstructor = findInstUser._id
-                const instId = findInstUser._id
-                req.params.id = instId
+                
+                // const instId = findInstUser._id
+                // req.params.id = instId
                 res.redirect("/instructor/listCourses")
             }else{
                 res.send("username or password is not correct")
@@ -226,7 +227,7 @@ module.exports = {
 
     },
 
-    // DELETE SPECIFIC COURSE PAGE :DONE NOT YET
+    // DELETE SPECIFIC COURSE PAGE :DONE
     deleteCourse: (req, res) => {
         
         if(req.session.currentInstructor){
@@ -239,7 +240,7 @@ module.exports = {
 
                 const index = coursesInformation.indexOf(Id);
                 coursesInformation.splice(index, 1);
-                
+                await instructor.save()
                 res.redirect("/instructor/listCourses")
             }
             // calling deleteCourse
