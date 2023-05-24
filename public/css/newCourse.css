@@ -1,0 +1,15 @@
+.inner-circle{
+    display: inline-block;
+    width: 40%;
+    height: 75%;
+    border-radius: 10rem 10rem 0 0;
+    border-style: solid;
+    border-width: 50px;
+    border-color: #2f2d52;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    top:0;
+    left:0;
+    margin-left: 30%;
+    margin-top: 10%;
+}

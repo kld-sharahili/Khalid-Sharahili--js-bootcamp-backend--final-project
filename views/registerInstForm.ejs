@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vesper+Libre&display=swap" rel="stylesheet">
+        <title>Login</title>
+</head>
+<body style="background-color: #2f2d52;">
+    <!-- 
+        #2f2d52 = بنفسجي
+        #b2f4db = أخضر فاتح
+        #f7c995 = لبني
+
+        --------------------------------
+
+        #f1f1fe = درجة البنفسجي الفاتج
+        #f1fdf9= درجة الأخضر الفاتح
+    -->
+
+    <div>
+                <!-- CONTAINER -->
+            <div class="container mx-auto">
+                <div>
+                    <div id="main-title" class="flex justify-start w-1/2 h-96 mt-20">
+                        <div class="flex w-full h-5 my-64" style="font-family: 'Vesper Libre', serif; font-size: 70px">
+                            <span style="color: #b2f4db;"> schedule </span>
+                            <span style="color: white;"> your </span>
+                            <span style="color: #f7c995;"> classes </span> 
+                        </div>
+
+                        <div class="inner-circle" class="flex justify-center w-full h-5 my-48">
+                            <div class="pl-4 pr-2 w-full h-96 mt-32">
+                                <form action="/Instructor/register" method="POST">   
+                                    <div class=" text-white p-2" style="font-size: 25px; font-family: 'Cormorant Garamond', serif; "> Username </div>
+                                    <input name="username" class="bg-white w-full border-emerald-200 border-2 mt-2 rounded-sm p-2 hover:border-4 transition-all duration-500">
+
+                                    <div class=" text-white p-2" style="font-size: 25px; font-family: 'Cormorant Garamond', serif; "> Email </div>
+                                    <input name="email" class="bg-white w-full border-emerald-200 border-2 mt-2 rounded-sm p-2 hover:border-4 transition-all duration-500">
+
+                                    <div class=" text-white p-2" style="font-size: 25px; font-family: 'Cormorant Garamond', serif; "> Password </div>
+                                    <input name="password" type="password" class="bg-white w-full border-emerald-200 border-2 mt-2 rounded-sm p-2 hover:border-4 transition-all duration-500">
+
+                                    <div class="flex justify-start mt-2">
+                                        <button type="submit" class="flex justify-center w-56 h-full mt-5 bg-red-800 border p-2 rounded-lg text-slate-950 hover:w-48 transition-all duration-700 " style="background:#b2f4db; font-weight: bold; font-family: 'IBM Plex Sans Condensed', sans-serif;"> Create a new account </button>
+                                    </div>
+                                </form> 
+                            </div>
+                        </div>      
+                    </div>
+
+                    <div class=" flex w-1/2 h-12 mt-1 mr-8">
+                        <div class=" text-lg text-slate-50" style="font-family: 'IBM Plex Sans', sans-serif;">
+                            The system allows you to manage your courses in a simple and easy way, 
+                            according to your field in a scheduled, easy-to-track manner.
+
+                    <div class="flex justify-center mt-10">
+                        
+                        <div class="mt-5 w-32 border p-2 rounded-lg mr-20 text-slate-950 bg-slate-500 hover:w-48 transition-all duration-700" style="background:#ffffff">
+                            <a id="btn" href="/instructor/login" class="flex justify-center w-full h-full bg-slate-500" style="background:#ffffff; font-weight: bold; font-family: 'IBM Plex Sans Condensed', sans-serif;">Sign in</a>
+                        </div>
+
+                        <div class="mt-5 w-40 p-2 rounded-lg text-slate-950 bg-slate-500">
+                            <a href="/instructor/register" class="flex justify-center w-full h-full" style=" font-weight: bold; font-family: 'IBM Plex Sans Condensed', sans-serif;">New Account</a>
+                        </div>
+                    </div>       
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END CONTAINER -->  
+    </div>
+        
+        
+</body>
+</html>

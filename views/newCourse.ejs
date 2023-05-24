@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/newCourse.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vesper+Libre&display=swap" rel="stylesheet">
+    <title>Adding Course</title>
+</head>
+<body style="background-color: #f1fdf9;">
+
+    <div class="inner-circle">
+        <div class="pl-4 pr-2 w-full h-96 mt-32">
+            <form action="/instructor/addCourse" method="POST">   
+                <div class=" text-slate-900 p-2" style="font-size: 25px; font-family: 'Cormorant Garamond', serif; "> Course name </div>
+                <input name="courseName" class="bg-white w-full border-emerald-200 border-2 mt-2 rounded-sm p-2 hover:border-4 transition-all duration-500">
+
+                <div class=" text-slate-900 p-2" style="font-size: 25px; font-family: 'Cormorant Garamond', serif; "> Course field </div>
+                <input name="CourseField" class="bg-white w-full border-emerald-200 border-2 mt-2 rounded-sm p-2 hover:border-4 transition-all duration-500">
+
+                <div class=" text-slate-900 p-2" style="font-size: 25px; font-family: 'Cormorant Garamond', serif; "> Description </div>
+                <textarea name="description" type="text" class="bg-white w-full border-emerald-200 border-2 mt-2 rounded-sm p-2 hover:border-4 transition-all duration-500"></textarea>
+
+                <div class="flex justify-start mt-2">
+                    <button type="submit" class="flex justify-center w-56 h-full mt-5 bg-red-800 border p-2 rounded-lg text-slate-950 hover:w-48 transition-all duration-700 " style="background:#f1f1fe; font-weight: bold; font-family: 'IBM Plex Sans Condensed', sans-serif;"> Create a new course </button>
+                </div>
+            </form> 
+        </div>
+    </div>
+</body>
+</html>

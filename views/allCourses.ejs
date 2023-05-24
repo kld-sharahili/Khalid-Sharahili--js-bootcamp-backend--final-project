@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/newCourse.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vesper+Libre&display=swap" rel="stylesheet">
+    <title>List Courses</title>
+</head>
+<body style="background-color: #f1fdf9;">
+
+    <div class=" bg-slate-600 w-full h-20">
+        <div class="mt-5 w-20 bg-red-600 border p-2 rounded-lg text-slate-950">
+            <a href="/instructor/login" class="flex justify-center w-full h-full bg-red-600 text-slate-300">
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <div class="container mx-auto">
+        <div class="class">
+            <table class="w-full mt-32 p-3">
+                <tr class="w-full rounded-lg border-b-gray-800 bg-slate-800 text-slate-50 h-20 ">
+                    <th>Course</th>
+                    <th>Field</th>
+                    <th>Instructor</th>
+                    <th>Control</th>
+                </tr>
+                <% for (course of allCourses) { %>
+                    <tr class="text-center bg-indigo-300">
+                        <td><%= course.courseName %></td>
+                        <td><%= course.field %></td>
+                        <td>Instructor name</td>
+                        <td class="flex justify-center gap-2 p-2 mb-4">
+                            <div class="mt-5 w-32 border p-2 rounded-lg text-slate-300 bg-slate-500">
+                                <a href="/instructor/courseInfo/<%= course._id %>" class="flex justify-center w-full h-full bg-slate-500" style="font-weight: bold; font-family: 'IBM Plex Sans Condensed', sans-serif;">Show Details</a>
+                            </div>
+            
+                            <div class="mt-5 w-20 bg-red-600 border p-2 rounded-lg text-slate-950">
+                                <a href="/instructor/deleteCourse/<%= course._id %>" class="flex justify-center w-full h-full bg-red-600 text-slate-300" style="font-weight: bold; font-family: 'IBM Plex Sans Condensed', sans-serif;">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+span {
+    padding-left: 10px;
+}
+
+.inner-circle{
+    display: inline-block;
+    width: 40%;
+    height: 75%;
+    border-radius: 10rem 10rem 0 0;
+    border-style: solid;
+    border-width: 50px;
+    border-color: #f1f1fe;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    top:0;
+    left:0;
+    margin-left: 50%;
+    margin-top: 10%;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vesper+Libre&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <title>Course Details</title>
+</head>
+<body style="background-color: #f1fdf9;">
+    
+    <div class="container mx-auto">
+        <div class="flex justify-center mt-32 w-full" style="height: 600px">
+            
+            <div class="flex justify-start gap-4 p-6 border border-gray-200 rounded-lg shadow bg-sky-900 w-1/2">
+                
+                <div class="w-full h-20">
+                    <div class="flex justify-start" style="font-family: 'Vesper Libre', serif;">
+                        <div class="text-white" style="font-size: 22px; font-weight: bold;">
+                            <h1>Course</h1>
+                            <h1>Information</h1>
+                        </div>
+
+                        <div>
+                            <button class="ml-6 bg-slate-500 w-full mt-6 p-1 rounded-lg">
+                                <a href="/instructor/updateCourse/<%= foundCourse._id %>" class="text-white h-10 w-full">
+                                    Edit
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="flex justify-start w-full h-10 mt-9 text-slate-50" style="font-family: 'Asul', sans-serif; font-size: 20px">
+                        <div class="mr-4">
+                            Course name: 
+                        </div>
+                        <div class="class">
+                            <%= foundCourse.courseName %>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-start  w-full h-10 mt-3 text-slate-50" style="font-family: 'Asul', sans-serif; font-size: 20px">
+                        <div class="mr-4">
+                            Field: 
+                        </div>
+                        <div class="ml-20">
+                            <%= foundCourse.field %>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-start w-full h-10 mt-3 text-slate-50" style="font-family: 'Asul', sans-serif; font-size: 20px">
+                        <div class="mr-4">
+                            Instructor: 
+                        </div>
+                        <div class="ml-10">
+                            <%= instInfo.username %>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-start w-full h-10 mt-3 text-slate-50" style="font-family: 'Asul', sans-serif; font-size: 20px">
+                        <div class="mr-4">
+                            Description: 
+                        </div>
+                        <div class="ml-4">
+                            <%= foundCourse.description %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- <a href="#" class=" border-zinc-500 bg-zinc-500 border-y-2 border-x-2 w-20 rounded-lg p-2 text-white">
+    Edit
+</a> -->
