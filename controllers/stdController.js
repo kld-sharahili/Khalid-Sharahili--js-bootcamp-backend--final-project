@@ -153,19 +153,41 @@ module.exports = {
         const verify = JWT.verify(token, process.env.private)
         const stdVerifyId = verify.user.id
         
-        if(stdVerifyId == stdId){
+
+        if (stdVerifyId != stdId) {
+            res.status(401).json({errorMessage: "NOT AUTHORIZED"})
+            return
+        }
+        
+        // if(stdVerifyId == stdId){
+            
             const listStdCourses = async () => {
 
                 const findStd = await Student.findById(stdId)
-                const populate = await findStd.populate("coursesInfo")
-                res.json(populate.coursesInfo)
+                const thisCourseInfo = await findStd.populate("coursesInfo")
+                const coursesData = thisCourseInfo.coursesInfo
+                // const instructors = await Instructor.findById(CoursesData.instructorInfo)
+                
+                let coursesInfo = []
+                let fields = []
+                let instructors = []
+                let instructorsFound = []
+
+                for( i = 0; i < coursesData.length; i++){
+                    instructors.push(coursesData[i].instructorInfo)
+                    const inst = await Instructor.findById(instructors)
+                    instructorsFound.push(inst)
+
+                    let value = [i+1 + "# Course Information" , "-----------------------", "COURSE NAME: " + coursesData[i].courseName,"FIELD: " + coursesData[i].field, "INSTRUCTOR: " + instructorsFound[i].username]
+                    coursesInfo.push(value)
+                }
+
+                res.json(coursesInfo)
             }
-    
             // calling listStdCourses
             listStdCourses()
-        } else {
-            res.status(401).json({errorMessage: "NOT AUTHORIZED"})
+
         }
         
     }
-}
+
