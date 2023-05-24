@@ -21,6 +21,9 @@ router.post("/listCourses", instController.sendInstForLogin)
 
 // ===================================================================
 
+// INSTRUCTOR DASHBOARD ROUT -- localhost/instructor/instructorDashboard
+router.get("/instructorDashboard", instController.instructorDashboard) 
+
 // CREATE COURSE ROUTE /GET-POST/
 router.get("/addCourse", instController.showingCourseForm)
 router.post("/addCourse", instController.addNewCourse)

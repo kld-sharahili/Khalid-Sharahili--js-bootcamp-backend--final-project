@@ -56,7 +56,7 @@ module.exports = {
         createStd()
     },
 
-    // STUDENT LOGIN / API :DONE
+    // STUDENT LOGIN / API
     enteredToSystem: (req, res) => {
         const username = req.body.username
         const password = req.body.password
@@ -93,7 +93,7 @@ module.exports = {
         loginStd()
     },
 
-    // LIST ALL COURSES / API :DONE 
+    // LIST ALL COURSES / API
     listAllCourses: (req, res) => {
 
         const listCourses = async () => {
@@ -107,7 +107,7 @@ module.exports = {
     },
 
 
-    // REGISTER IN SPECIFIC COURSE / API :DONE
+    // REGISTER IN SPECIFIC COURSE / API
     registerSpecificCourse: (req, res) => {
         const courseId = req.params.id
         
@@ -145,7 +145,7 @@ module.exports = {
         stdCourseRegister()
     },
 
-    // LIST OF COURSES OF SPECIFIC STUDENT THAT REGISTERED IN / API :DONE
+    // LIST OF COURSES OF SPECIFIC STUDENT THAT REGISTERED IN / API
     listSpecificCourses:  (req, res) => {
         const stdId = req.params.id
 
@@ -198,7 +198,7 @@ module.exports = {
         }
     },
 
-    // CANCEL THE REGISTRATION FROM COURSE
+    // CANCEL THE REGISTRATION FROM COURSE / API
     cancelRegistrationCourse: (req, res) => {
         const stdId = req.params.id
         const courseId = req.body.courseId
@@ -207,8 +207,6 @@ module.exports = {
             const authHeader = req.headers.authorization
             const token = authHeader.split(" ")[1] 
             JWT.verify(token, process.env.private)          
-            // const verify = JWT.verify(token, process.env.private)
-            // const stdVerifyId = verify.user.id
 
             const cancelRegister = async () => {
                 const findStd = await Student.findById(stdId)

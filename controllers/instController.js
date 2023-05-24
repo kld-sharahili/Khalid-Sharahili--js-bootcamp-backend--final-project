@@ -14,7 +14,7 @@ const someOtherPlaintextPassword = 'not_bacon';
 
 module.exports = {
 
-    // REGISTRATION PAGE :DONE
+    // REGISTRATION PAGE
     showingInstRegister: (req, res) => {
         res.render("registerInstForm.ejs")
     },
@@ -54,7 +54,7 @@ module.exports = {
         createInst()
     },
 
-    // LOGIN PAGE :DONE
+    // LOGIN PAGE
     showingInstLogin: (req, res) => {
         res.render("loginInstForm.ejs")
     },
@@ -76,9 +76,6 @@ module.exports = {
             const response = await bcrypt.compare(password, pwdHashed)
             if(response == true){
                 req.session.currentInstructor = findInstUser._id
-                
-                // const instId = findInstUser._id
-                // req.params.id = instId
                 res.redirect("/instructor/listCourses")
             }else{
                 res.send("username or password is not correct")
@@ -89,7 +86,12 @@ module.exports = {
         enteringInstToSys()
     },
 
-    // CREATE COURSE PAGE :DONE
+    // INSTRUCTOR DASHBOARD PAGE
+    instructorDashboard: (req, res) => {
+        res.render("instructorDashboard.ejs")
+    },
+
+    // CREATE COURSE PAGE 
     showingCourseForm: (req, res) => {
         if(req.session.currentInstructor){
             res.render("newCourse.ejs")
