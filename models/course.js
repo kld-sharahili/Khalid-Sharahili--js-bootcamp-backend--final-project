@@ -9,7 +9,12 @@ const courseSchema = schema({
     instructorInfo: {
         type: schema.Types.ObjectId,
         ref: "instructor"
-    }
+    },
+
+        studentInfo: [{
+        type: schema.Types.ObjectId,
+        ref: "student"
+    }],
 
 },{
     timestamps: true

@@ -11,5 +11,11 @@ router.post("/register", stdController.register)
 // LOGIN ROUTE
 router.post("/login", stdController.enteredToSystem)
 
+// LIST ALL COURSES ROUT -- localhost/api/student/listCourses
+router.get("/listCourses", stdController.listAllCourses)
+
+// REGISTER IN SPECIFIC COURSE ROUTE -- localhost/api/student/courseRegistration
+router.post("/courseRegistration", stdController.registerSpecificCourse)
+
 
 module.exports = router

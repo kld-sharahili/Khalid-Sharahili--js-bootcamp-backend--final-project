@@ -1,4 +1,6 @@
+const Instructor = require("../models/instUser")
 const Student = require("../models/stdUser")
+const Course = require("../models/course")
 const JWT = require("jsonwebtoken")
 
 // BCRYPT REQUIREMENTS
@@ -11,6 +13,7 @@ const someOtherPlaintextPassword = 'not_bacon';
 
 
 module.exports = {
+    // STUDENT REGISTRATION / API
     register: (req, res) => {
         const username = req.body.username
         const email = req.body.email
@@ -50,6 +53,7 @@ module.exports = {
         createStd()
     },
 
+    // STUDENT LOGIN / API
     enteredToSystem: (req, res) => {
         const username = req.body.username
         const password = req.body.password
@@ -84,5 +88,23 @@ module.exports = {
 
         // calling loginStd
         loginStd()
+    },
+
+    // LIST ALL COURSES / API
+    listAllCourses: (req, res) => {
+
+        const listCourses = async () => {
+
+            const allCourses = await Course.find()
+            res.json(allCourses)
+        }
+
+        // calling listCourses
+        listCourses()
+    },
+
+    // REGISTER IN SPECIFIC COURSE / API
+    registerSpecificCourse: (req, res) => {
+        
     }
 }
