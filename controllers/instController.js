@@ -38,10 +38,7 @@ module.exports = {
             })
 
                 const foundNewInst = await newInstructor.save()
-                // const token = JWT.sign({user: {
-                //     id: foundNewInst._id,
-                //     username: foundNewInst.username
-                // }}, process.env.private ,{expiresIn: "12h"})
+
 
                 res.redirect("/instructor/login")
 
@@ -76,7 +73,7 @@ module.exports = {
             const response = await bcrypt.compare(password, pwdHashed)
             if(response == true){
                 req.session.currentInstructor = findInstUser._id
-                res.redirect("/instructor/listCourses")
+                res.redirect("/instructor/instructorDashboard")
             }else{
                 res.send("username or password is not correct")
             }
@@ -271,3 +268,6 @@ module.exports = {
         res.redirect("/instructor/login")
     }
 }
+
+
+// https://lmsfinalproject.onrender.com
