@@ -88,7 +88,18 @@ module.exports = {
 
     // INSTRUCTOR DASHBOARD PAGE
     instructorDashboard: (req, res) => {
-        res.render("instructorDashboard.ejs")
+        if(req.session.currentInstructor){
+            const id = req.session.currentInstructor
+            const findInstructor = async () => {
+                const findInst = await Instructor.findById(id)
+                const instructor = findInst.username
+                res.render("instructorDashboard.ejs", {instructor})
+            }
+            findInstructor()
+            
+        } else {
+            res.send("NOT AUTHORIZED")
+        }
     },
 
     // CREATE COURSE PAGE 

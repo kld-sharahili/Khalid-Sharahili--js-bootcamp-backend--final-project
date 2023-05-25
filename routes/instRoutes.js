@@ -17,7 +17,7 @@ router.post("/register", instController.sendInstForRegister)
 // LOGIN ROUTE /GET/
 router.get("/login", instController.showingInstLogin)
 // LOGIN ROUTE /POST/
-router.post("/listCourses", instController.sendInstForLogin)
+router.post("/instructorDashboard", instController.sendInstForLogin)
 
 // ===================================================================
 

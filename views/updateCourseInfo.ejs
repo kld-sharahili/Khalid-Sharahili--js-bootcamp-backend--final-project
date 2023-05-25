@@ -19,6 +19,20 @@
 </head>
 <body style="background-color: #f1fdf9;">
     
+    <div class="flex bg-sky-900 h-20 ">
+        <div class="flex-initial w-44">
+            <div class="h-5 mt-7">
+                <div class="bg-red-600 p-1 rounded-lg ml-8 w-16 hover:p-2 transition-all duration-700 text-center">
+                    <a href="/instructor/logout" class="w-20 bg-red-600 text-white" style="font-family: 'IBM Plex Sans', sans-serif;">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="flex-initial w-96 h-10 mt-5 text-center text-white" style="font-size: 28px; font-family: 'IBM Plex Sans', sans-serif; margin-left: 30%">
+            <a href="/instructor/instructorDashboard" style="text-decoration: none;">Back to Instructor Dashboard</a>
+        </div>
+    </div>
+
+
     <div class="container mx-auto">
         <div class="flex justify-center mt-32 w-full" style="height: 600px">
             
@@ -31,13 +45,6 @@
                             <h1>Information</h1>
                         </div>
 
-                        <div>
-                            <button class="ml-6 bg-slate-500 w-full mt-6 p-1 rounded-lg">
-                                <a href="#" class="text-white h-10 w-full">
-                                    Edit
-                                </a>
-                            </button>
-                        </div>
                     </div>
 
                     <hr>
@@ -47,25 +54,25 @@
                             <div class="mr-4">
                                 Course name: 
                             </div>
-                            <input name="courseName" class="class" placeholder="<%= foundCourse.courseName %>">
+                            <input name="courseName" class="text-black" placeholder="<%= foundCourse.courseName %>">
                                 
                             </input>
                         </div>
 
                         <div class="flex justify-start  w-full h-10 mt-3 text-slate-50" style="font-family: 'Asul', sans-serif; font-size: 20px">
-                            <div class="mr-4">
+                            <div class="mr-3">
                                 Field: 
                             </div>
-                            <input name="field" class="ml-20" placeholder="<%= foundCourse.field %>">
+                            <input name="field" class="ml-20 text-black" placeholder="<%= foundCourse.field %>">
                                 
                             </input>
                         </div>
 
                         <div class="flex justify-start w-full h-10 mt-3 text-slate-50" style="font-family: 'Asul', sans-serif; font-size: 20px">
-                            <div class="mr-4">
+                            <div class="mr-3">
                                 Instructor: 
                             </div>
-                            <input name="instructor" class="ml-10" placeholder="<%= instInfo.username %>">
+                            <input  name="instructor" class="ml-10 text-black" placeholder="<%= instInfo.username %>" disabled>
                                 
                             </input>
                         </div>
@@ -74,11 +81,11 @@
                             <div class="mr-4">
                                 Description: 
                             </div>
-                            <textarea name="description" class="ml-4" placeholder="<%= foundCourse.description %>">           
+                            <textarea name="description" class="ml-4 w-full h-32 text-black" placeholder="<%= foundCourse.description %>">           
                             </textarea>
                         </div>
 
-                        <div class="mt-5 w-72 bg-green-500 border p-2 rounded-lg text-slate-950">
+                        <div class="mt-32 w-72 bg-green-500 border p-2 rounded-lg text-slate-950">
                             <button type="submit" class="flex justify-center w-full h-full bg-green-500 text-white" style="font-weight: bold; font-family: 'IBM Plex Sans Condensed', sans-serif;">Update information of this course</button>
                         </div>
                 </form>    

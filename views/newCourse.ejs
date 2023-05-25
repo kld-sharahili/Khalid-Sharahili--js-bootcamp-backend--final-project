@@ -14,22 +14,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Vesper+Libre&display=swap" rel="stylesheet">
     <title>Adding Course</title>
 </head>
-<body style="background-color: #f1fdf9;">
+<body style="background-image: url(https://cdn.pixabay.com/photo/2018/02/15/14/37/paper-3155438_1280.jpg);">
+
+    <div class="flex bg-sky-900 h-20 ">
+        <div class="flex-initial w-44">
+            <div class="h-5 mt-7">
+                <div class="bg-red-600 p-1 rounded-lg ml-8 w-16 hover:p-2 transition-all duration-700 text-center">
+                    <a href="/instructor/logout" class="w-20 bg-red-600 text-white" style="font-family: 'IBM Plex Sans', sans-serif;">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="flex-initial w-96 h-10 mt-5 text-center text-white" style="font-size: 28px; font-family: 'IBM Plex Sans', sans-serif; margin-left: 30%">
+            <a href="/instructor/instructorDashboard" style="text-decoration: none;">Back to Instructor Dashboard</a>
+        </div>
+    </div>
+
 
     <div class="inner-circle">
         <div class="pl-4 pr-2 w-full h-96 mt-32">
             <form action="/instructor/addCourse" method="POST">   
                 <div class=" text-slate-900 p-2" style="font-size: 25px; font-family: 'Cormorant Garamond', serif; "> Course name </div>
-                <input name="courseName" class="bg-white w-full border-emerald-200 border-2 mt-2 rounded-sm p-2 hover:border-4 transition-all duration-500">
+                <input name="courseName" class="bg-white w-full border-emerald-200 border-2 mt-2 rounded-sm p-2 ">
 
                 <div class=" text-slate-900 p-2" style="font-size: 25px; font-family: 'Cormorant Garamond', serif; "> Course field </div>
-                <input name="CourseField" class="bg-white w-full border-emerald-200 border-2 mt-2 rounded-sm p-2 hover:border-4 transition-all duration-500">
+                <input name="CourseField" class="bg-white w-full border-emerald-200 border-2 mt-2 rounded-sm p-2 ">
 
                 <div class=" text-slate-900 p-2" style="font-size: 25px; font-family: 'Cormorant Garamond', serif; "> Description </div>
-                <textarea name="description" type="text" class="bg-white w-full border-emerald-200 border-2 mt-2 rounded-sm p-2 hover:border-4 transition-all duration-500"></textarea>
+                <textarea name="description" type="text" class="bg-white w-full border-emerald-200 border-2 mt-2 rounded-sm p-2 "></textarea>
 
                 <div class="flex justify-start mt-2">
-                    <button type="submit" class="flex justify-center w-56 h-full mt-5 bg-red-800 border p-2 rounded-lg text-slate-950 hover:w-48 transition-all duration-700 " style="background:#f1f1fe; font-weight: bold; font-family: 'IBM Plex Sans Condensed', sans-serif;"> Create a new course </button>
+                    <button type="submit" class="flex justify-center w-56 h-full mt-5 border p-2 rounded-lg text-white bg-teal-700" style="font-weight: bold; font-family: 'IBM Plex Sans Condensed', sans-serif;"> Create a new course </button>
                 </div>
             </form> 
         </div>

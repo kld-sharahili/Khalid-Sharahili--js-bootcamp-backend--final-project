@@ -16,11 +16,16 @@
 </head>
 <body style="background-color: #f1fdf9;">
 
-    <div class=" bg-slate-600 w-full h-20">
-        <div class="mt-5 w-20 bg-red-600 border p-2 rounded-lg text-slate-950">
-            <a href="/instructor/logout" class="flex justify-center w-full h-full bg-red-600 text-slate-300">
-                Logout
-            </a>
+    <div class="flex bg-sky-900 h-20 ">
+        <div class="flex-initial w-44">
+            <div class="h-5 mt-7">
+                <div class="bg-red-600 p-1 rounded-lg ml-8 w-16 hover:p-2 transition-all duration-700 text-center">
+                    <a href="/instructor/logout" class="w-20 bg-red-600 text-white" style="font-family: 'IBM Plex Sans', sans-serif;">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="flex-initial w-96 h-10 mt-5 text-center text-white" style="font-size: 28px; font-family: 'IBM Plex Sans', sans-serif; margin-left: 30%">
+            <a href="/instructor/instructorDashboard" style="text-decoration: none;">Back to Instructor Dashboard</a>
         </div>
     </div>
 
@@ -30,21 +35,19 @@
                 <tr class="w-full rounded-lg border-b-gray-800 bg-slate-800 text-slate-50 h-20 ">
                     <th>Course</th>
                     <th>Field</th>
-                    <th>Instructor</th>
                     <th>Control</th>
                 </tr>
                 <% for (course of allCourses) { %>
                     <tr class="text-center bg-indigo-300">
                         <td><%= course.courseName %></td>
                         <td><%= course.field %></td>
-                        <td>Instructor name</td>
                         <td class="flex justify-center gap-2 p-2 mb-4">
-                            <div class="mt-5 w-32 border p-2 rounded-lg text-slate-300 bg-slate-500">
+                            <div class="mt-5 w-32 border p-2 rounded-lg text-white bg-slate-500">
                                 <a href="/instructor/courseInfo/<%= course._id %>" class="flex justify-center w-full h-full bg-slate-500" style="font-weight: bold; font-family: 'IBM Plex Sans Condensed', sans-serif;">Show Details</a>
                             </div>
             
                             <div class="mt-5 w-20 bg-red-600 border p-2 rounded-lg text-slate-950">
-                                <a href="/instructor/deleteCourse/<%= course._id %>" class="flex justify-center w-full h-full bg-red-600 text-slate-300" style="font-weight: bold; font-family: 'IBM Plex Sans Condensed', sans-serif;">Delete</a>
+                                <a href="/instructor/deleteCourse/<%= course._id %>" class="flex justify-center w-full h-full bg-red-600 text-white" style="font-weight: bold; font-family: 'IBM Plex Sans Condensed', sans-serif;">Delete</a>
                             </div>
                         </td>
                     </tr>
