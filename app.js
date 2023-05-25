@@ -51,6 +51,6 @@ app.use("/instructor", instRouter)
 
 
 // LISTENING TO PORT
-app.listen(80, () => {
+app.listen(8888, () => {
     console.log("LISTENING") 
 })

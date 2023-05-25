@@ -219,14 +219,39 @@ module.exports = {
             const description = req.body.description
             const instructorOf =req.body.instructor
             
+
             const courseUpdated = async () => {
                 const findCourse = await Course.findById(courseId)
                 findCourse.courseName = courseName
                 findCourse.field = field
                 findCourse.description = description
+                const populateInstInfo = await findCourse.populate("instructorInfo")
+                const coursesLinkedWithInst = populateInstInfo.instructorInfo.coursesInfo
+                let checking = []
+                for(i = 0; i < coursesLinkedWithInst.length; i++){
+                    const check = coursesLinkedWithInst[i] == courseId
+                    checking.push(check)
+
+                }
+
+                const trueCheck = []
+                for(i = 0; i < checking.length; i++){
+                    if(checking[i] == true){
+                        trueCheck.push("true")
+                    }
+                }
+
+                if(trueCheck[0] != "true"){
+                    res.json("error")
+                }else{
+                    
+                    await findCourse.save()
+                    res.redirect("/instructor/listCourses")
+                }
                 
-                const courseUpdated = await findCourse.save()
-                res.redirect("/instructor/listCourses")
+                
+                // const courseUpdated = await findCourse.save()
+                // res.redirect("/instructor/listCourses")
             }
 
             // calling updateCourse
@@ -270,4 +295,3 @@ module.exports = {
 }
 
 
-// https://lmsfinalproject.onrender.com
