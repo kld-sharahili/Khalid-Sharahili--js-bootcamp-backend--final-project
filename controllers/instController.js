@@ -225,6 +225,8 @@ module.exports = {
                 findCourse.courseName = courseName
                 findCourse.field = field
                 findCourse.description = description
+
+                // TRYING TO FIND COURSE ID IN POPULATE BUT TIME IS OVER
                 const populateInstInfo = await findCourse.populate("instructorInfo")
                 const coursesLinkedWithInst = populateInstInfo.instructorInfo.coursesInfo
                     
