@@ -8,9 +8,9 @@ const JWT = require("jsonwebtoken")
 const bcrypt = require('bcrypt');
 const saltRound = process.env.Private
 const saltRounds = Number(saltRound)
-
+ 
 const myPlaintextPassword = 's0/\/\P4$$w0rD';
-const someOtherPlaintextPassword = 'not_bacon';
+const someOtherPlaintextPassword = 'not_bacon'; 
 
 module.exports = {
 

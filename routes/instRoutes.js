@@ -7,7 +7,7 @@ router.use(bodyParser.urlencoded({ extended: true }))
 router.use(bodyParser.json())
 
 
-// REGISTRATION ROUTE /GET/
+// REGISTRATION ROUTE /GET/ localhost:8888/instructor/register
 router.get("/register", instController.showingInstRegister)
 // REGISTRATION ROUTE /POST/
 router.post("/register", instController.sendInstForRegister)

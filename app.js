@@ -28,6 +28,8 @@ dbConnection()
 const Student = require("./models/stdUser")
 const Instructor = require("./models/instUser")
 const Course = require("./models/course")
+const Admin = require("./models/admin")
+
 
 // API REQUIREMENTS 
 app.use(express.json())
@@ -39,12 +41,16 @@ app.use(express.static("public"))
 // ACTIVATE EJS
 app.set("view engin", "ejs") 
 
+// ADMIN ROUTER / UI
+const adminRouter = require("./routes/adminRoutes")
+app.use("/admin", adminRouter)
 // STUDENT ROUTER / API
 const stdRouter = require("./routes/stdRoutes")
 app.use("/api/student", stdRouter)
 // INSTRUCTOR ROUTER / UI
-const instRouter = require("./routes/instRoutes")
+const instRouter = require("./routes/instRoutes") 
 app.use("/instructor", instRouter)
+
 // =====================================================
 
 
